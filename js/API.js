@@ -14,3 +14,23 @@ export const newClient = async (client) => {
     console.log(error);
   }
 };
+
+export const getClients = async () => {
+  try {
+    const response = await fetch(url);
+    const clients = await response.json();
+    return clients;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteClient = async (id) => {
+  try {
+    await fetch(`${url}/${id}`, {
+      method: "DELETE",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
